@@ -1,0 +1,7 @@
+Build options: --experimental_allow_incremental_repository_updates --symlink_prefix=dist/ --incompatible_strict_action_env --repository_cache=/home/jwillebrands/.bazel_cache/ --explain=log --verbose_explanations --verbose_failures
+Executing action 'BazelWorkspaceStatusAction stable-status.txt': unconditional execution is requested.
+Executing action 'Creating source manifest for //:bin_bin': no entry in the cache (action is new).
+Executing action 'Expanding template bin_bin.sh': no entry in the cache (action is new).
+Executing action 'Expanding template bin_bin_loader.js': no entry in the cache (action is new).
+Executing action 'Executing genrule //:expensive-data-generator': no entry in the cache (action is new).
+Executing action 'Creating runfiles tree bazel-out/k8-fastbuild/bin/bin_bin.sh.runfiles': no entry in the cache (action is new).

@@ -1,4 +1,32 @@
 # Add rules here to build your software
 # See https://docs.bazel.build/versions/master/build-ref.html#BUILD_files
 
+load("@build_bazel_rules_nodejs//:defs.bzl", "nodejs_binary", "nodejs_test")
 
+genrule(
+    name = "expensive-data-generator",
+    outs = ["data.json"],
+    cmd = "echo '[0, 1, 1, 2, 3, 5, 8]' > $@",
+    tags = ["manual"],
+)
+
+nodejs_binary(
+    name = "bin",
+    data = [":expensive-data-generator"],
+    entry_point = ":index.js",
+    tags = ["manual"],
+)
+
+genrule(
+    name = "test-data-generator",
+    outs = ["testdata.json"],
+    cmd = "echo '[0, 1, 1, 2, 3, 5, 8]' > $@",
+    tags = ["manual"],
+)
+
+nodejs_test(
+    name = "test",
+    data = [":test-data-generator"],
+    entry_point = ":test.js",
+    tags = ["manual"],
+)
